@@ -40,7 +40,7 @@ async function getLink(url , message){
 	MSG = message
 	scrape(URL , MSG)
 	if(!URL){
-		return message.channel.send("Lyrics not Found")
+		return message.channel.send("Lyrics not Found. Try searching in the order - 'ArtistName SongName'.")
 	} else return message.channel.send("Here's what we found - ")
 }
 async function scrape(url , message){
@@ -55,14 +55,8 @@ async function scrape(url , message){
 
 }
 function lyrics(message) {
-	query = message.content.split(" ")
-	console.log(query)
-	query.shift()
-	console.log(query)
-	line = query.join("+")
-	console.log(line)
-	url ='https://search.azlyrics.com/search.php?q=' + line
-	console.log(url )
+	url ='https://search.azlyrics.com/search.php?q=' + query
+	console.log(url)
 	msg = message
 	getLink(url , msg)
 	searched = query.join(" ")
